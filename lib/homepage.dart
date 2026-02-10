@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:mobile_scanner/mobile_scanner.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -55,10 +57,21 @@ class _HomePageState extends State<HomePage> {
                             ),
                             SizedBox(height: 25,),
                             Container(
+                              constraints: BoxConstraints(
+                                maxHeight: 200,
+                                maxWidth: 200,
+                              ),
+                              //add qr cod scanner here
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(15),
                                 border: Border.all(width: 1,color:const Color.fromARGB(255, 10, 207, 233), )
                               ),
+                              child:MobileScanner(
+                                onDetect: (results){
+                                  print(results.barcodes.first.rawValue);
+                                },
+                              ),
+                            
                             )
                           ],
                     ),
