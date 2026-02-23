@@ -99,7 +99,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
-                                  color: const Color.fromARGB(255, 10, 207, 233),
+                                  color: const Color.fromARGB(
+                                    255,
+                                    10,
+                                    207,
+                                    233,
+                                  ),
                                 ),
                                 child: Padding(
                                   padding: const EdgeInsets.all(15.0),
@@ -137,7 +142,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   borderRadius: BorderRadius.circular(15),
                                   border: Border.all(
                                     width: 1,
-                                    color: const Color.fromARGB(255, 10, 207, 233),
+                                    color: const Color.fromARGB(
+                                      255,
+                                      10,
+                                      207,
+                                      233,
+                                    ),
                                   ),
                                 ),
                                 child: ClipRRect(
@@ -149,7 +159,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                         animation: _scanController,
                                         builder: (context, child) {
                                           return Positioned(
-                                            top: _scanController.value * 170 + 15,
+                                            top:
+                                                _scanController.value * 170 +
+                                                15,
                                             left: 10,
                                             right: 10,
                                             child: Container(
@@ -158,16 +170,28 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                                 gradient: LinearGradient(
                                                   colors: [
                                                     Colors.transparent,
-                                                    Colors.cyan.withOpacity(0.9),
-                                                    Colors.cyanAccent.withOpacity(0.9),
-                                                    Colors.cyan.withOpacity(0.9),
+                                                    Colors.cyan.withOpacity(
+                                                      0.9,
+                                                    ),
+                                                    Colors.cyanAccent
+                                                        .withOpacity(0.9),
+                                                    Colors.cyan.withOpacity(
+                                                      0.9,
+                                                    ),
                                                     Colors.transparent,
                                                   ],
-                                                  stops: const [0.0, 0.2, 0.5, 0.8, 1.0],
+                                                  stops: const [
+                                                    0.0,
+                                                    0.2,
+                                                    0.5,
+                                                    0.8,
+                                                    1.0,
+                                                  ],
                                                 ),
                                                 boxShadow: [
                                                   BoxShadow(
-                                                    color: Colors.cyan.withOpacity(0.5),
+                                                    color: Colors.cyan
+                                                        .withOpacity(0.5),
                                                     blurRadius: 10,
                                                     spreadRadius: 3,
                                                   ),
@@ -186,22 +210,27 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
                                           if (_isAnimating) {
                                             if (_showFingerprint) {
-                                              offset = -200 * _animationController.value;
+                                              offset =
+                                                  -200 *
+                                                  _animationController.value;
                                             } else {
-                                              offset = 200 * _animationController.value;
+                                              offset =
+                                                  200 *
+                                                  _animationController.value;
                                             }
                                           }
 
                                           return Transform.translate(
                                             offset: Offset(offset, 0),
-                                            child: Container(
+                                            child: SizedBox(
                                               width: 200,
                                               height: 200,
                                               child: Center(
                                                 child: Container(
                                                   width: 100,
                                                   height: 100,
-                                                  decoration: const BoxDecoration(),
+                                                  decoration:
+                                                      const BoxDecoration(),
                                                   child: Icon(
                                                     _showFingerprint
                                                         ? Icons.fingerprint
@@ -226,11 +255,21 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                           decoration: const BoxDecoration(
                                             border: Border(
                                               top: BorderSide(
-                                                color: Color.fromARGB(255, 10, 207, 233),
+                                                color: Color.fromARGB(
+                                                  255,
+                                                  10,
+                                                  207,
+                                                  233,
+                                                ),
                                                 width: 4,
                                               ),
                                               left: BorderSide(
-                                                color: Color.fromARGB(255, 10, 207, 233),
+                                                color: Color.fromARGB(
+                                                  255,
+                                                  10,
+                                                  207,
+                                                  233,
+                                                ),
                                                 width: 4,
                                               ),
                                             ),
@@ -246,11 +285,21 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                           decoration: const BoxDecoration(
                                             border: Border(
                                               top: BorderSide(
-                                                color: Color.fromARGB(255, 10, 207, 233),
+                                                color: Color.fromARGB(
+                                                  255,
+                                                  10,
+                                                  207,
+                                                  233,
+                                                ),
                                                 width: 4,
                                               ),
                                               right: BorderSide(
-                                                color: Color.fromARGB(255, 10, 207, 233),
+                                                color: Color.fromARGB(
+                                                  255,
+                                                  10,
+                                                  207,
+                                                  233,
+                                                ),
                                                 width: 4,
                                               ),
                                             ),
@@ -266,11 +315,21 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                           decoration: const BoxDecoration(
                                             border: Border(
                                               bottom: BorderSide(
-                                                color: Color.fromARGB(255, 10, 207, 233),
+                                                color: Color.fromARGB(
+                                                  255,
+                                                  10,
+                                                  207,
+                                                  233,
+                                                ),
                                                 width: 4,
                                               ),
                                               left: BorderSide(
-                                                color: Color.fromARGB(255, 10, 207, 233),
+                                                color: Color.fromARGB(
+                                                  255,
+                                                  10,
+                                                  207,
+                                                  233,
+                                                ),
                                                 width: 4,
                                               ),
                                             ),
@@ -286,11 +345,21 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                           decoration: const BoxDecoration(
                                             border: Border(
                                               bottom: BorderSide(
-                                                color: Color.fromARGB(255, 10, 207, 233),
+                                                color: Color.fromARGB(
+                                                  255,
+                                                  10,
+                                                  207,
+                                                  233,
+                                                ),
                                                 width: 4,
                                               ),
                                               right: BorderSide(
-                                                color: Color.fromARGB(255, 10, 207, 233),
+                                                color: Color.fromARGB(
+                                                  255,
+                                                  10,
+                                                  207,
+                                                  233,
+                                                ),
                                                 width: 4,
                                               ),
                                             ),
@@ -324,9 +393,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 errorAnimationController: errorController,
                                 onCompleted: (value) {
                                   if (value != "123456") {
-                                    errorController.add(ErrorAnimationType.shake);
+                                    errorController.add(
+                                      ErrorAnimationType.shake,
+                                    );
                                   } else {
-                                    Navigator.pushNamed(context, '/animate');
+                                    Navigator.pushReplacementNamed(
+                                      context,
+                                      '/auth_success',
+                                    );
                                   }
                                 },
                                 cursorColor: Colors.blue,
@@ -334,11 +408,18 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   shape: PinCodeFieldShape.box,
                                   borderRadius: BorderRadius.circular(8),
                                   activeFillColor: Colors.white,
-                                  inactiveFillColor: Colors.white.withOpacity(0.8),
+                                  inactiveFillColor: Colors.white.withOpacity(
+                                    0.8,
+                                  ),
                                   selectedFillColor: Colors.white,
                                   activeColor: Colors.cyan,
                                   selectedColor: Colors.cyan,
-                                  inactiveColor: const Color.fromARGB(255, 147, 236, 248),
+                                  inactiveColor: const Color.fromARGB(
+                                    255,
+                                    147,
+                                    236,
+                                    248,
+                                  ),
                                 ),
                                 enableActiveFill: true,
                               ),
