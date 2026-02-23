@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gms/animate.dart';
 import 'package:gms/homepage.dart';
 
 void main (){
@@ -17,6 +18,9 @@ class _gmsState extends State<gms> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomePage(),
+      routes: {
+        '/animate': (context) => Animate(),
+      },
     );
   }
 }
