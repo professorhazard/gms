@@ -69,7 +69,7 @@ class AuthSuccessScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 32),
-
+                  
               // Glassmorphism Organization Card
               ClipRRect(
                 borderRadius: BorderRadius.circular(12),
@@ -110,7 +110,7 @@ class AuthSuccessScreen extends StatelessWidget {
                               ),
                               child: Center(
                                 child: Image.network(
-                                  'https://lh3.googleusercontent.com/aida-public/AB6AXuB5Zv6_Sh1hsDdEE7_Q5ie0gQ12jwJy0T4MCQibg6J6D_zhbr-TvvN-8q9Njz8qdiWrVaY_QbBnfOQPq3aDZAD9AoV_LFHpyxM7P8y5T31J8vlt7XE6E6e4jWW_VQuntHqCsZlQYG54GmWENLoXmi8512-mP9Gg6-1nFX-RKHQ6yqUjACjpmAlOnmYtOOp8tVGcRICUFD9AztnZK5QizcXbwVNyGVCgL3tq_cGh9lrKEvJfZLSDtmiapQBzIuFnw3gQGkAMo_6KuwU',
+                                  'https://www.cbu.ac.zm/unipod/website/logos/unipod.png',
                                   width: 40,
                                   height: 40,
                                   fit: BoxFit.contain,
@@ -131,7 +131,7 @@ class AuthSuccessScreen extends StatelessWidget {
                                     children: [
                                       const Expanded(
                                         child: Text(
-                                          'TechCorp Solutions Inc.',
+                                          'Mukuba Unipod',
                                           style: TextStyle(
                                             color: textColor,
                                             fontSize: 18,
@@ -200,9 +200,9 @@ class AuthSuccessScreen extends StatelessWidget {
                   ),
                 ),
               ),
-
+                  
               const Spacer(),
-
+                  
               // Bottom Actions
               Column(
                 children: [
@@ -240,7 +240,7 @@ class AuthSuccessScreen extends StatelessWidget {
                     onPressed: () {
                       Navigator.pushNamedAndRemoveUntil(
                         context,
-                        '/',
+                        '/auth',
                         (route) => false,
                       );
                     },

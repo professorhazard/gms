@@ -9,7 +9,9 @@ import 'widgets/complaint_form/evidence_upload_section.dart';
 import 'widgets/complaint_form/complaint_bottom_actions.dart';
 
 class Complaints extends StatefulWidget {
-  const Complaints({super.key});
+  final VoidCallback? onBack;
+
+  const Complaints({super.key, this.onBack});
 
   @override
   State<Complaints> createState() => _ComplaintsState();
@@ -135,7 +137,11 @@ class _ComplaintsState extends State<Complaints> {
                                   children: [
                                     IconButton(
                                       onPressed: () {
-                                        Navigator.pop(context);
+                                        if (widget.onBack != null) {
+                                          widget.onBack!();
+                                        } else {
+                                          Navigator.pop(context);
+                                        }
                                       },
                                       icon: const Icon(Icons.arrow_back_ios_new, size: 20, color: textColor),
                                       visualDensity: VisualDensity.compact,
@@ -271,8 +277,15 @@ class _ComplaintsState extends State<Complaints> {
                             ),
                             
                             const SizedBox(height: 16),
-                            
-                            // Security Footer
+                               ComplaintBottomActions(
+            onSubmitAnonymously: () {
+              // Handle anonymous submission
+            },
+            onSaveDraft: () {
+              // Handle save draft
+            },
+          ),
+                            const SizedBox(height: 16),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -293,6 +306,7 @@ class _ComplaintsState extends State<Complaints> {
                         ),
                       ),
                     ),
+                  
                   ],
                 ),
               ),
@@ -300,14 +314,7 @@ class _ComplaintsState extends State<Complaints> {
           ),
           
           // Fixed Bottom Actions
-          ComplaintBottomActions(
-            onSubmitAnonymously: () {
-              // Handle anonymous submission
-            },
-            onSaveDraft: () {
-              // Handle save draft
-            },
-          ),
+         
         ],
       ),
     );

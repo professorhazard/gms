@@ -287,6 +287,7 @@ class SubmissionConfirmationScreen extends StatelessWidget {
                                 ElevatedButton(
                                   onPressed: () {
                                     // Navigate to track status
+                                    Navigator.pushNamed(context, '/cases');
                                   },
                                   style: ElevatedButton.styleFrom(
                                     foregroundColor: Colors.white,
