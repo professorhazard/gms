@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:ui';
-
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide LinearGradient;
 import 'package:flutter/services.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:rive/rive.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,11 +15,13 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   late AnimationController _animationController;
   late AnimationController _scanController;
-
+  
   final errorController = StreamController<ErrorAnimationType>.broadcast();
 
   bool _showFingerprint = true;
   bool _isAnimating = false;
+
+ 
 
   @override
   void initState() {
@@ -66,51 +68,26 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     _animationController.dispose();
     _scanController.dispose();
     errorController.close();
+   
     super.dispose();
   }
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 6, 177, 224),
-      body: SafeArea(
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            final viewInsets = MediaQuery.of(context).viewInsets.bottom;
-            // constrain card size to a percentage of available space, minus keyboard
-            final maxWidth = constraints.maxWidth * 0.9;
-            return Center(
-              child: SingleChildScrollView(
-                padding: EdgeInsets.only(bottom: viewInsets),
-                child: ConstrainedBox(
-                  constraints: BoxConstraints(
-                    maxWidth: maxWidth > 400 ? 400 : maxWidth,
-                    // no height limit; allow scroll to accommodate keyboard
-                  ),
-                  child: _buildAuthCard(context),
-                ),
-              ),
-            );
-          },
-        ),
-      ),
-    );
-  }
 
-  Widget _buildAuthCard(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(25),
-      child: Center(
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(15),
-          child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
-            child: Container(
-              decoration: BoxDecoration(
-                color: const Color.fromRGBO(255, 255, 255, 0.8),
-                borderRadius: BorderRadius.circular(15),
-                border: Border.all(width: 2, color: Colors.white30),
-              ),
+      body: SafeArea(
+        child: Stack(
+      children: [
+  
+  RiveAnimation.asset("lib/animation/shapes.riv", fit: BoxFit.cover),
+        Padding(
+          padding: const EdgeInsets.all(25),
+          child: Center(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(15),
+              child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
               child: Padding(
                 padding: const EdgeInsets.all(25.0),
                 child: Column(
@@ -147,7 +124,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     // ─── SCANNER CONTAINER WITH SCAN LINE + CORNERS ───
                     Container(
                       constraints: const BoxConstraints(
-                        maxHeight: 200,
+                        maxHeight: 150,
                         maxWidth: 200,
                       ),
                       decoration: BoxDecoration(
@@ -172,7 +149,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   child: Container(
                                     height: 4,
                                     decoration: BoxDecoration(
-                                      gradient: LinearGradient(
+                                      /*gradient: LinearGradient(
                                         colors: [
                                           Colors.transparent,
                                           Colors.cyan.withOpacity(0.9),
@@ -181,7 +158,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                           Colors.transparent,
                                         ],
                                         stops: const [0.0, 0.2, 0.5, 0.8, 1.0],
-                                      ),
+                                      ),*/
                                       boxShadow: [
                                         BoxShadow(
                                           color: Colors.cyan.withOpacity(0.5),
@@ -362,6 +339,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ),
           ),
         ),
+      ),
+      ]
+    ),
       ),
     );
   }

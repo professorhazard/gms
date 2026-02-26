@@ -37,7 +37,8 @@ dependencies:
   mobile_scanner: ^7.1.4
   carousel_slider: ^5.1.2
   pin_code_fields: ^8.0.1
-  
+  rive: ^0.9.1
+
 
 dev_dependencies:
   flutter_test:
@@ -63,7 +64,7 @@ flutter:
 
   assets:
      - lib/images/
-  #   - images/a_dot_ham.jpeg
+     - lib/animation/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

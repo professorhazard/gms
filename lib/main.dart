@@ -6,8 +6,12 @@ import 'package:gms/complaint.dart';
 import 'package:gms/my_cases_screen.dart';
 import 'package:gms/resolution_feedback.dart';
 import 'package:gms/submission_confirmation.dart';
+import 'package:rive/rive.dart';
 
-void main() {
+
+Future<void> main()   async { 
+  WidgetsFlutterBinding.ensureInitialized();
+  
   runApp(const MyApp());
 }
 
